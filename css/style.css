@@ -44,25 +44,32 @@ nav a:hover{
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
-
   /*Your code here - position relative to the parent */
-  /*Your code here - place 40px higher */;
+  /*Your code here - place 40px higher */
+  position: absolute;
+  top: -40px;
 }
 
 /*Your code here*/
 /*Add the selector and rule to move the skip 
 link to the exact top of the page.*/
+.skip a:focus{
+  top: 0;
+}
  
 
 /*Your code here*/
 /*Add the selector and code to put a 2px black 
 border around all elements in focus.*/
+*:focus{
+  border: 2px #000000;
+}
   
 
 footer{
   background-color: black;
   color: white;
-  grid-column: 1 / -1;  /*Can you explain what this does?*/
+  grid-column: 1 / -1;  /*Can you explain what this does? (spans across all columns)*/
   grid-row: 7 / span 1;   /*Can you rewrite it?*/
   padding-top: 30px;
   text-align: center;
@@ -75,12 +82,13 @@ nav{
 
   /*Your code here*/
   /*Span the top row*/
-  column-span: all;
+  grid-column: 1 / span 3;
   grid-row: 1 / span 1;
+
 }
 
 header{
-  background-attachment: fixed; /* Parallax effect */
+  background-attachment: fixed; /* Parallax effect */     
   background-position: center;  /* Parallax effect */
   background-repeat: no-repeat; /* Parallax effect */
   background-size: cover;       /* Parallax effect */
@@ -90,7 +98,7 @@ header{
   /* Your code here */
   /* Set background-image to header.jpg in the images folder */
   /* Span one row */
-  column-span: all;
+  grid-column: 1 / span 3;
   grid-row: 2 / span 1;
   background-image: url("../images/header.jpg");
 }
@@ -106,25 +114,24 @@ header p{
 .container{
   /*Your code here  */
   /* See documentation for mobile view */
+  display: grid;
   grid-template-columns: 100px 400px 100px;
   grid-template-rows: 30px repeat(5, auto) 100px;
   grid-row-gap: 15px;
 }
-
 .about, .method, .clients, .contact{
   /*Your code here */
   /* See documentation for mobile view */
   grid-column: 2 / span 1;
+
 }
 
 .about-image, .method-image, .clients-image, .contact-image{
    /*Your code here */
    /* See documentation for mobile view */
-  column-span: all;
+  grid-column: 1 / span 3;
   max-height: 700px;
   overflow: hidden;
-  position: relative;
-  /*z-index: -1;*/
 }
 
 .about, .about-image{
@@ -151,7 +158,6 @@ header p{
   /*Your code here */
   /* See documentation for mobile view */
   grid-row: 6 / span 1;
-  position: relative;
 }
 
 .text-block{
@@ -160,16 +166,8 @@ header p{
   padding: 30px;
   /*Your code here:*/
   /*Align the content in the center */
-  /*margin: auto;*/
-  /*position: absolute;*/
-  /*z-index: 1;*/
-  /*vertical-align: center;*/
-}
-
-.contact .text-block{
-  display: inline-block;
-  position: absolute;
-  vertical-align: middle;
+  margin: auto;
+  align-self: center;
 }
 
 
@@ -193,7 +191,7 @@ header p{
   .about, .clients, .method-image, .contact-image{
   /*Your code here */
   /* See documentation for desktop view */
-    grid-column: 3 / span 2;
+  grid-column: 3 / span 2;
   }
 
   .about-image, .clients-image, .method, .contact{
